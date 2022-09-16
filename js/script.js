@@ -9,3 +9,7 @@ let n2 = parseInt(prompt("Introduce un numero"))
 alert(n1+n2)
 
 //typeof = para saber de que tipo es el dato
+
+
+
+
