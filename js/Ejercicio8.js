@@ -43,7 +43,7 @@ const menu = (saldo) => {
     //Este return lo que hace es que la funcion devuelva el valor que se ingresa por teclado
     //Se pone el parseInt ya que esto devuelve un String y no podria compararse con el "case 1" ya que ese 1 es un int,
     //Tambien se podria dejar sin el parseInt pero en el switch habria que poner comillas lo cual seria asi 'case "1"'
-    return parseInt(prompt(`Elige una opcion \n 
+    return parseInt(prompt(`MENU CAJERO \n 
     Saldo actual: ${saldo}\n
     1. Sacar dinero\n
     2. Ingresar dinero\n
@@ -72,12 +72,13 @@ const sacar = (saldo) => {
     
     let cobrar = parseInt(prompt("Dinero a retirar"))
 
-    if(cobrar > 0 ){
+    if(cobrar > 0 && saldo >= cobrar){
         saldo -= cobrar
         alert(`Retirarda: ${cobrar}\n 
         Saldo: ${saldo}`)
-    }else {
-        alert/`La retirada ingresada es negativa ${cobrar}`
+    }
+    if(cobrar > saldo){
+        alert(`No puedes sacar mas de su saldo `)
     }
     
     return saldo
@@ -118,7 +119,7 @@ const programa = () => {
             switch(opcion){
                     //Sacar dinero
                 case 1:
-                    saldo = sacar(saldo)
+                    saldo = sacar(saldo) //con esto actualizamos la variable saldo
                     break
 
                     //Ingreso
@@ -131,7 +132,7 @@ const programa = () => {
                     break
                     //Cambiar contraseña
                 case 4:
-                    con = cambiarcon(con)
+                    con = cambiarcon(con) //con esto actualizamos la variable con (contraseña)
                     break
                     //Salir
                 case 5:
