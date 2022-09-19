@@ -85,7 +85,6 @@ const sacar = (saldo) => {
 
 const consultar = (saldo) => {
     alert(`Saldo: ${saldo}`)
-
     return saldo
 }
 
@@ -112,6 +111,7 @@ const programa = () => {
     if(entrada(con)){
         
         do {
+            
             //Aqui se le asigna a opcion el valor que devuelve menu 
             opcion = menu(saldo)
             
@@ -131,7 +131,7 @@ const programa = () => {
                     break
                     //Cambiar contraseña
                 case 4:
-                    cambiarcon(con)
+                    con = cambiarcon(con)
                     break
                     //Salir
                 case 5:
