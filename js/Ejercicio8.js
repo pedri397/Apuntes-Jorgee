@@ -36,12 +36,15 @@ const entrada = (con) =>{
     return correcto
 }
 
-const menu = () => {
+
+
+const menu = (saldo) => {
 
     //Este return lo que hace es que la funcion devuelva el valor que se ingresa por teclado
     //Se pone el parseInt ya que esto devuelve un String y no podria compararse con el "case 1" ya que ese 1 es un int,
     //Tambien se podria dejar sin el parseInt pero en el switch habria que poner comillas lo cual seria asi 'case "1"'
     return parseInt(prompt(`Elige una opcion \n 
+    Saldo actual: ${saldo}\n
     1. Sacar dinero\n
     2. Ingresar dinero\n
     3. Consultar saldo\n
@@ -49,48 +52,92 @@ const menu = () => {
     5. Salir`))
 }
 
-const ingresar = () => {
+const ingresar = (saldo) => {
 
+    let ingreso = parseInt(prompt("Dinero a ingresar"))
+
+    if(ingreso > 0){ //Aqui comprueba que el ingreso sea positivo.
+
+        saldo += ingreso
+        alert(`Ingreso: ${ingreso} \n
+        Saldo: ${saldo}`)
+    }else{
+        alert(`El saldo ingresado es negativo ${ingreso}`)
+    }
+    
+    return saldo 
+}
+
+const sacar = (saldo) => {
+    
+    let cobrar = parseInt(prompt("Dinero a retirar"))
+
+    if(cobrar > 0 ){
+        saldo -= cobrar
+        alert(`Retirarda: ${cobrar}\n 
+        Saldo: ${saldo}`)
+    }else {
+        alert/`La retirada ingresada es negativa ${cobrar}`
+    }
+    
+    return saldo
+}
+
+const consultar = (saldo) => {
+    alert(`Saldo: ${saldo}`)
+
+    return saldo
+}
+
+const cambiarcon = (con) => {
+
+    let con2 = prompt("Introduce la nueva contraseña")
+
+    if(con == con2){
+        alert("Error: Las contraseña nueva coincide con la contraseña actual")
+    }else {
+
+        con = con2
+        alert(`Contraseña nueva: ${con} `)
+    }
+
+    return con
 }
 
 const programa = () => {
     let opcion = 0
-    let con = "DAW2"
     let saldo = 8000
-
+    let con = "DAW2"
+    
     if(entrada(con)){
-
+        
         do {
             //Aqui se le asigna a opcion el valor que devuelve menu 
-            opcion = menu()
+            opcion = menu(saldo)
             
             switch(opcion){
-
+                    //Sacar dinero
                 case 1:
-                    alert("HOLA")
+                    saldo = sacar(saldo)
                     break
 
+                    //Ingreso
                 case 2:
-                    alert("CARA")
+                    saldo = ingresar(saldo)
                     break
-                
+                    //Consultar saldo 
                 case 3: 
-                    alert("COLA")
+                    saldo = consultar(saldo)
                     break
-                
+                    //Cambiar contraseña
                 case 4:
-                    alert("4")
+                    cambiarcon(con)
                     break
-
+                    //Salir
                 case 5:
                     alert("Hasta luego")
                     break
-
             }
-
-
-
-            
         } while (opcion !== 5) //El bucle se va a ejecutar mientras opcion sea diferente de 5
 
     }
