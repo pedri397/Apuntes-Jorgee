@@ -15,7 +15,8 @@ const menu = () => {
     4. Map\n
     5. Añadir Moscu y Buenos Aires\n 
     6. Buscar si madrid existe y si no existe se borra\n
-    7. Salir`))
+    7. Saca el array solo con Toledo, Madrid y Barcelona\n 
+    8. Salir`))
 }
 
 
@@ -56,31 +57,36 @@ const programa = () => {
                 ciudades.push("Moscu")
                 alert(ciudades)
                 break
-            case 6:
+            case 6://Este elimina a madrid por posicion 
                 if (ciudades.some(ciudad => ciudad === "Madrid")) {
                     alert("Si esta")
-                    ciudades.splice(ciudades.indexOf( ciudad => ciudad === "Madrid"))
+                    ciudades.splice(ciudades.findIndex( ciudad => ciudad === "Madrid"), 1)
+                    alert(ciudades)
 
                 } else {
                     ciudades.push("Madrid")
                 }
-
                 //Tambien se puede hacer con FILTER
 
                 // if(ciudades.some(ciudad => ciudad === "Madrid")){
-                //     ciudades.filter(ciudad => ciudad !== "Madrid")
+                //   let nuevasciudades = ciudades.filter(ciudad => ciudad !== "Madrid")
+                //     alert(nuevasciudades)
+
                 // }else {
                 //     ciudades.push("Madrid")
                 // }
-                
                 break
             case 7:
+                let nuevofilterciu = ciudades.filter(ciudad => ciudad === "Madrid" || ciudad === "Toledo" || ciudad === "Barcelona")
+                alert(nuevofilterciu)
+                ciudades.concat(nuevofilterciu)
+                alert(nuevofilterciu)
+                break
+            case 8:
                 alert("Hasta luego")
                 break
         }
-    } while (opcion !== 7) //El bucle se va a ejecutar mientras opcion sea diferente de 5
-
-
+    } while (opcion !== 8) //El bucle se va a ejecutar mientras opcion sea diferente de 5
 }
 
 
