@@ -40,7 +40,7 @@ console.log(nuevo2)
 
 //Funcion FIND
 //Al aplicarse la condicion devuelve el primer numero que encuentra 
-//si usas .findIndex te devuelve la posicion en la que se encuentra
+//si usas ".findIndex" te devuelve la posicion en la que se encuentra
 
 
 let nuevo3 = edades.find(edad => edad > 10)
@@ -57,7 +57,7 @@ let nuevo4 = edades.filter(edad => edad < 18).map(edad => edad + 5)
 console.log(nuevo4)
 
 
-//Funcion REDUCE ha una operacion con todos los elementos y te saca el resultado de esa operacion 
+//Funcion REDUCE hace una operacion con todos los elementos y te saca el resultado de esa operacion 
 
 let nuevo5 = edades.reduce((edad, acu) => { //Esta operacion saca la suma de las edades
     return acu + edad
